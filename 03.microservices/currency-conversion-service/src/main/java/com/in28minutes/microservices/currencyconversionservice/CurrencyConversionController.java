@@ -13,6 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * 
+ * CurrencyConversionBean is superset of the bean returned from CurrencyExchange service.
+ * as its easy for JSON to handle anything that is subset
+ * eg Trivago will form its JSON as super set of all airlines to consolidate all type of responses 
+ *
+ * 
+ */
 @RestController
 public class CurrencyConversionController {
 

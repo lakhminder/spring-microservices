@@ -8,6 +8,17 @@ import org.springframework.context.annotation.Bean;
 
 import brave.sampler.Sampler;
 
+/**
+ * 
+ * Will use RestTemplate to invoke other service => refer Controller
+ * Feign Rest client is used for invoking other Microservices
+ * 1) Enable feign client with package to scan
+ * 2) write FeignClient as proxy for MicroService
+ * 3) invoke proxy methods to invoke service
+ * 
+ * Ribbon is used for Client Side Load Balancing
+ *
+ */
 @SpringBootApplication
 @EnableFeignClients("com.in28minutes.microservices.currencyconversionservice")
 @EnableDiscoveryClient

@@ -5,12 +5,14 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-//@FeignClient(name="currency-exchange-service", url="localhost:8000")
-//@FeignClient(name="currency-exchange-service")
+// 1* @FeignClient(name="currency-exchange-service", url="localhost:8000")
+// 2* Feign (with ribon) with only service name, url handled by Ribbon
+// 2* @FeignClient(name="currency-exchange-service")
 @FeignClient(name="netflix-zuul-api-gateway-server")
+// 2* Feign with Ribbon for load balancing , for list of servers refer application.properties
 @RibbonClient(name="currency-exchange-service")
 public interface CurrencyExchangeServiceProxy {
-	//@GetMapping("/currency-exchange/from/{from}/to/{to}")
+	// 1* @GetMapping("/currency-exchange/from/{from}/to/{to}")
 	@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
 	public CurrencyConversionBean retrieveExchangeValue
 		(@PathVariable("from") String from, @PathVariable("to") String to);
