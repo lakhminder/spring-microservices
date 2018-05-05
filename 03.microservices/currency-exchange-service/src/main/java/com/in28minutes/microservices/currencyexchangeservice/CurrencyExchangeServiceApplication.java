@@ -7,6 +7,19 @@ import org.springframework.context.annotation.Bean;
 
 import brave.sampler.Sampler;
 
+/**
+ * 
+ * Refer CurrencyExchangeController.java
+ * Refer pom.xml for h2DB dependency
+ * 	*.sql file in resources is picked automatically by H2
+ * Refer application.properties to enable h2 console
+ * 	localhost:8000/h2-console
+ * 	login => 
+ * 		driver class = org.h2.Driver
+ * 		JDBC URL = jdbc:h2:mem:testdb
+ * 		username = sa 
+ *
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
 public class CurrencyExchangeServiceApplication {
