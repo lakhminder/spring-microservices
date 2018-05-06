@@ -8,6 +8,23 @@ import org.springframework.context.annotation.Bean;
 
 import brave.sampler.Sampler;
 
+/**
+ * 
+ * ZuulProxy to setup as Zuul API Gateway server
+ * Also enable as Eureka client i.e @EnableDiscoveryClient
+ * 
+ * refer application.properties
+ * 
+ * Apply Filters => refer ZuulLoggingFilter.java
+ * 
+ * Normal invocation of CE service
+ * 		localhost:8000/currency-exchange/from/EUR/to/INR
+ * Using Zuul API gateway
+ * 		localhost:8765/{application-name}/{uri}
+ * 	i.e localhost:8765/currency-exchange-service/currency-exchange/from/EUR/to/INR	
+ * 
+ * For Microservice invoking other microservice through Zuul refer currency-conversion-service's proxy class
+ */
 @EnableZuulProxy
 @EnableDiscoveryClient
 @SpringBootApplication
