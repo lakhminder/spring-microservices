@@ -19,6 +19,8 @@ import brave.sampler.Sampler;
  * 		JDBC URL = jdbc:h2:mem:testdb
  * 		username = sa 
  *
+ * Eureka discovery client is used for clint for Naming Server(Eureka)
+ * Eureka is used for Service registry and discovery
  */
 @SpringBootApplication
 @EnableDiscoveryClient

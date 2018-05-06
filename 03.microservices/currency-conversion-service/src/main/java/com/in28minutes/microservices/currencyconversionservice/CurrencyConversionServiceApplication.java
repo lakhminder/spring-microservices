@@ -16,7 +16,10 @@ import brave.sampler.Sampler;
  * 2) write FeignClient as proxy for MicroService
  * 3) invoke proxy methods to invoke service
  * 
- * Ribbon is used for Client Side Load Balancing
+ * Ribbon is used for Client Side Load Balancing => refer proxy
+ * 
+ * Eureka discovery client is used for clint for Naming Server(Eureka)
+ * Eureka is used for Service registry and discovery
  *
  */
 @SpringBootApplication
