@@ -3,3 +3,4 @@
 2) Add Feign as dependency
 3) Add Ribbon
 4) Add Eureka Client
+5) Add Sleuth

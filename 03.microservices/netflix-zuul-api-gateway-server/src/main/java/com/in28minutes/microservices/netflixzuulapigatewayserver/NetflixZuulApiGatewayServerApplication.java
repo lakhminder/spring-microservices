@@ -24,6 +24,9 @@ import brave.sampler.Sampler;
  * 	i.e localhost:8765/currency-exchange-service/currency-exchange/from/EUR/to/INR	
  * 
  * For Microservice invoking other microservice through Zuul refer currency-conversion-service's proxy class
+ * 
+ * Add Sampler as Bean in individual services for enabling Sleuth for all requests
+ * 
  */
 @EnableZuulProxy
 @EnableDiscoveryClient

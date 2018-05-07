@@ -2,3 +2,4 @@
 	WEb,Dev Tools(for deploy changes without restarting for dev mode),Actuator,config client
 2) add spring boot data JPA && h2 DB(in memory) as dependency 
 3) Add Eureka Client
+4) Add Sleuth

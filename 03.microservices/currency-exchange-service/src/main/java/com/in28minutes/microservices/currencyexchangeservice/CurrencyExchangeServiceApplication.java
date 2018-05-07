@@ -21,6 +21,8 @@ import brave.sampler.Sampler;
  *
  * Eureka discovery client is used for clint for Naming Server(Eureka)
  * Eureka is used for Service registry and discovery
+ * 
+ * Add Sampler as Bean in individual services for enabling Sleuth for all requests
  */
 @SpringBootApplication
 @EnableDiscoveryClient
