@@ -23,6 +23,8 @@ import brave.sampler.Sampler;
  * Eureka is used for Service registry and discovery
  * 
  * Add Sampler as Bean in individual services for enabling Sleuth for all requests
+ * Add Sleuth Zipkin dependency for formatting Slueth looggers to Zipkin Format (refer ReadMe.txt & pom.xml)
+ * and AMQP Bus dependency (default RabbitMQ) to collect all messages from various components/Microservices
  */
 @SpringBootApplication
 @EnableDiscoveryClient

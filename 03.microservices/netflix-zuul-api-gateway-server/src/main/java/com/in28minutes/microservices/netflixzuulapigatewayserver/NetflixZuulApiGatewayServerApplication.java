@@ -26,6 +26,8 @@ import brave.sampler.Sampler;
  * For Microservice invoking other microservice through Zuul refer currency-conversion-service's proxy class
  * 
  * Add Sampler as Bean in individual services for enabling Sleuth for all requests
+ * Add Sleuth Zipkin dependency for formatting Slueth looggers to Zipkin Format (refer ReadMe.txt & pom.xml)
+ * and AMQP Bus dependency (default RabbitMQ) to collect all messages from various components/Microservices
  * 
  */
 @EnableZuulProxy
