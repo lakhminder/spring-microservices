@@ -14,10 +14,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.in28minutes.rest.webservices.restfulwebservices.user.UserNotFoundException;
 
-@ControllerAdvice
-@RestController
+@ControllerAdvice// applies to all MVCControllers/RestResources , to share ExceptionHandlers
+// ,Model Attributes and more
+@RestController// since its an controller for Exceptions
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
+	//ExceptionHandler for Exception
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
 		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
@@ -25,6 +27,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
+	//ExceptionHandler for UserNotFoundException
 	@ExceptionHandler(UserNotFoundException.class)
 	public final ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex, WebRequest request) {
 		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),

@@ -20,6 +20,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+/**
+ * 
+ * @RequestBody is used to convert json message to Bean in Post request
+ * refer createUser()
+ * Java provides VAlidation by @Valid to check/validating input object 
+ * => refer createUser() and User.java *
+ * 
+ * see UserNotFoundException.java
+ *
+ */
 @RestController
 public class UserResource {
 
@@ -59,6 +69,8 @@ public class UserResource {
 		
 		if(user==null)
 			throw new UserNotFoundException("id-"+ id);		
+		
+		//ResponseEntity.noContent(); can also be returned
 	}
 
 	//
@@ -74,11 +86,14 @@ public class UserResource {
 		// /user/{id}     savedUser.getId()
 		
 		URI location = ServletUriComponentsBuilder
-			.fromCurrentRequest()
-			.path("/{id}")
-			.buildAndExpand(savedUser.getId()).toUri();
+			.fromCurrentRequest() // current request
+			.path("/{id}") // append 
+			.buildAndExpand(savedUser.getId()) // resolve id
+			.toUri();
 		
-		return ResponseEntity.created(location).build();
+		// response with status created(201) and location
+		// set in header
+		return ResponseEntity.created(location).build();  
 		
 	}
 }

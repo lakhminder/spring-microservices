@@ -8,16 +8,30 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-//Controller
+/**
+ * 
+ * @RequestMapping is generic while @GetMapping is specific for GET
+ * 
+ * For Bean to be returned as JSON getter should be there(for Jackson auto conversion)
+ * @RestController has @ResponseBody which is responsible for messageConverters usage 
+ * while returning response
+ * 
+ * SpringBoot autoConfiguration configures Jackson message Converters
+ *
+ */
 @RestController
 public class HelloWorldController {
 	
 	@Autowired
 	private MessageSource messageSource; 
 
-	@GetMapping(path = "/hello-world")
+	@GetMapping("/hello-world")
+	//@GetMapping(path = "/hello-world") // even 'path' is not needed
+	//@RequestMapping(method=RequestMethod.GET, path = "/hello-world")
 	public String helloWorld() {
 		return "Hello World";
 	}
