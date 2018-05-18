@@ -21,7 +21,20 @@ import org.springframework.web.bind.annotation.RestController;
  * while returning response
  * 
  * SpringBoot autoConfiguration configures Jackson message Converters
+ * 
+ * i18N 
+ * 		Add locale resolver in configuration(SpringApplication as bean)
+ * 		Add ResourceBundleMessageSource in configuration(SpringApplication as bean)
+ * 		Add message.properties(per Locale)
+ * 		Autowire messageSource and use =>refer helloWorldInternationalized()
  *
+ *	version 2
+ *		Spring provides LocaleContextHolder with locale set from Header(Accept-Language)
+ *			when used with AcceptHeaderLocaleResolver
+ *		ResourceBundleMessageSource Bean can be removed as it can be 
+ *			configured in application.properties itself
+ *	refer RestfulWebServicesApplication.java and application.properties
+ *	
  */
 @RestController
 public class HelloWorldController {
@@ -47,6 +60,16 @@ public class HelloWorldController {
 		return new HelloWorldBean(String.format("Hello World, %s", name));
 	}
 
+	//version 1
+	// in header(Accept-Language) if not set so use default and hence required=false
+	/*@GetMapping(path = "/hello-world-internationalized")
+	public String helloWorldInternationalized(@RequestHeader(name="Accept-Language", required=false) Locale locale) {
+	//public String helloWorldInternationalized() {
+		return messageSource.getMessage("good.morning.message", null, 
+									locale);
+	}*/
+	//version 2
+	//Spring provides LocaleContextHolder with locale set from Header(Accept-Language)
 	@GetMapping(path = "/hello-world-internationalized")
 	public String helloWorldInternationalized() {
 		return messageSource.getMessage("good.morning.message", null, 
