@@ -34,6 +34,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  * 	refer retrieveUser() 
  * 	returns "all-users", SERVER_PATH + "/users" using spring boot hateoas(ControllerLinkBuilder)
  *
+ *	For contentNegotiation refer pom.xml
+ *
  */
 @RestController
 public class UserResource {

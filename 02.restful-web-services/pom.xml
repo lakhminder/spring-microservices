@@ -57,6 +57,9 @@
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
 
+		<!-- Add below for supporting xml format as by default only JSON is supported
+			to use with accept and contentType Header for content Negotiation
+		 --> 
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
