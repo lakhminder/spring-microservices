@@ -29,6 +29,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  * => refer createUser() and User.java and CustomizedResponseEntityExceptionHandler.java
  * 
  * see UserNotFoundException.java
+ * 
+ * For HATEOAS return Resource<User> instead of User
+ * 	refer retrieveUser() 
+ * 	returns "all-users", SERVER_PATH + "/users" using spring boot hateoas(ControllerLinkBuilder)
  *
  */
 @RestController
@@ -43,6 +47,7 @@ public class UserResource {
 	}
 
 	@GetMapping("/users/{id}")
+	//public User retrieveUser(@PathVariable int id) {
 	public Resource<User> retrieveUser(@PathVariable int id) {
 		User user = service.findOne(id);
 		
