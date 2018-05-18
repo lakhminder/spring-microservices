@@ -21,11 +21,11 @@ public class User {
 	@GeneratedValue
 	private Integer id;
 
-	@Size(min=2, message="Name should have atleast 2 characters")
+	@Size(min=2, message="Name should have atleast 2 characters")// validation with error message
 	@ApiModelProperty(notes="Name should have atleast 2 characters")
 	private String name;
 
-	@Past
+	@Past// validation
 	@ApiModelProperty(notes="Birth date should be in the past")
 	private Date birthDate;
 	

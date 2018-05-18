@@ -13,7 +13,11 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.in28minutes.rest.webservices.restfulwebservices.user.UserNotFoundException;
-
+/**
+ * 
+ * override handleMethodArgumentNotValid() for validation 
+ *
+ */
 @ControllerAdvice// applies to all MVCControllers/RestResources , to share ExceptionHandlers
 // ,Model Attributes and more
 @RestController// since its an controller for Exceptions
@@ -35,6 +39,9 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
 	}
 	
+	/**
+	 * invoked incase of validation failed
+	 */
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {

@@ -24,8 +24,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  * 
  * @RequestBody is used to convert json message to Bean in Post request
  * refer createUser()
- * Java provides VAlidation by @Valid to check/validating input object 
- * => refer createUser() and User.java *
+ * Java provides VAlidation by @Valid to check/validating input object (hibernate validator is on classpath
+ * through starter web)
+ * => refer createUser() and User.java and CustomizedResponseEntityExceptionHandler.java
  * 
  * see UserNotFoundException.java
  *
