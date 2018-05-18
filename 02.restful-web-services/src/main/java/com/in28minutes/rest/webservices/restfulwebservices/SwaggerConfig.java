@@ -13,6 +13,15 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Add Swagger in pom
+ * add swagger as configuration and Enable it
+ * add Docket as Bean
+ * refer User.java as well
+ * 
+ * open localhost:8080/v2/api-docs
+ * or localhost:8080/swagger-ui.html
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -32,7 +41,10 @@ public class SwaggerConfig {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
+				//optional to improve Info section
 				.apiInfo(DEFAULT_API_INFO)
+				//for fixing the documentation , earlier showing only JSON
+				//I guess better to include on specific methods as in JAX-RS
 				.produces(DEFAULT_PRODUCES_AND_CONSUMES)
 				.consumes(DEFAULT_PRODUCES_AND_CONSUMES);
 	}

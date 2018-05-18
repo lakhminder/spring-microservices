@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description="All details about the user.")
+@ApiModel(description="All details about the user.")//swagger
 @Entity
 public class User {
 
