@@ -3,3 +3,4 @@
 2) Add spring boot starter hateoas
 3) Add Jackson for xml support
 4) Add Swagger for documentation
+5) Add actuator and HAL browser

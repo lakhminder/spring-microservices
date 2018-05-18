@@ -37,6 +37,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  * For contentNegotiation refer pom.xml
  *
  * For Swagger Documentation refer SwaggerConfig.java
+ * 
+ * For Monitoring
+ * 	add actuator and HAL browser in pom.xml
+ * 	enable access in application.properties for actuator
+ * open localhost:8080/actuator(if not work try 8080/application)
+ * localhost:8080 or localhost:8080/browser for hal browser
+ * 		in explorer type 'actuator'
  *
  */
 @RestController
