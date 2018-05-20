@@ -2,7 +2,18 @@ package com.in28minutes.rest.webservices.restfulwebservices.versioning;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * Diff ways for Versioning
+ * 1)	Diff urls(Twitter)
+ * 2) 	passed as path param(Amazon)
+ * 			localhost:8080/person/param?version=1
+ * 3)   Header param(user defined)(Microsoft)
+ * 4)   Header Accept param by using produces(content negotiation/MIME versioning/Media type versioning)
+ * 		(GutHub)
+ * 
+ * caching cannot be achieved for 3 && 4 since url are same and need to look into header
+ * if client is browser based then 3 && 4 is ruled out
+ */
 @RestController
 public class PersonVersioningController {
 
