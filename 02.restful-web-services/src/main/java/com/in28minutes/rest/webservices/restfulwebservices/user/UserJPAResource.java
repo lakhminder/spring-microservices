@@ -27,7 +27,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  * define @Entity (User.java)
  * add data.sql to be run auto each time server starts for inserting data to table
  * 		*.sql file in resources is picked automatically by H2
- * 		open 	localhost:8000/h2-console
+ * 		open 	localhost:8080/h2-console
  * 			login => 
  * 				driver class = org.h2.Driver
  * 				JDBC URL = jdbc:h2:mem:testdb
