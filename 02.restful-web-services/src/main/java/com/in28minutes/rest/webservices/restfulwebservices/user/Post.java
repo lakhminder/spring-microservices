@@ -16,6 +16,7 @@ public class Post {
 	private Integer id;
 	private String description;
 	
+	//Imp to have lazy to not go in loop
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnore
 	private User user;

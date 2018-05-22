@@ -21,6 +21,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+/**
+ * Add h2 and spring jpa dependency in pom
+ * enable h2 console in application.properties
+ * define @Entity (User.java)
+ * add data.sql to be run auto each time server starts for inserting data to table
+ * 		*.sql file in resources is picked automatically by H2
+ * 		open 	localhost:8000/h2-console
+ * 			login => 
+ * 				driver class = org.h2.Driver
+ * 				JDBC URL = jdbc:h2:mem:testdb
+ * 				username = sa
+ * Create Repository and autowire it
+ * refer User.java & Post.java(for mapping)
+ */
 @RestController
 public class UserJPAResource {
 
@@ -78,7 +92,7 @@ public class UserJPAResource {
 	}
 	
 	@GetMapping("/jpa/users/{id}/posts")
-	public List<Post> retrieveAllUsers(@PathVariable int id) {
+	public List<Post> retrieveAllPosts(@PathVariable int id) {
 		Optional<User> userOptional = userRepository.findById(id);
 		
 		if(!userOptional.isPresent()) {
@@ -104,7 +118,7 @@ public class UserJPAResource {
 		
 		postRepository.save(post);
 		
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(post.getId())
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{postId}").buildAndExpand(post.getId())
 				.toUri();
 
 		return ResponseEntity.created(location).build();

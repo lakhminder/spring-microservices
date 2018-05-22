@@ -44,6 +44,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  * open localhost:8080/actuator(if not work try 8080/application)
  * localhost:8080 or localhost:8080/browser for hal browser
  * 		in explorer type 'actuator'
+ * 
+ * 
+ * Refer UserJPAResource.java
  *
  */
 @RestController
