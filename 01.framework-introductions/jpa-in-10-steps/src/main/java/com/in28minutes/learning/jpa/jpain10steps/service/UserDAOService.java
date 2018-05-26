@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.in28minutes.learning.jpa.jpain10steps.entity.User;
 
+/**
+ * @PersistenceContext is needed to track the entities
+ * CommandLineRunner runs at application launch
+ *
+ */
 @Repository
 @Transactional
 public class UserDAOService {
